@@ -1,0 +1,9 @@
+{
+  "name": "jubilant-robot",
+  "version": "1.0.0",
+  "description": "Beep Boop",
+  "main": "index.js",
+  "repository": "git@github.com:erickzhao/jubilant-robot.git",
+  "author": "Erick Zhao <erick@hotmail.ca>",
+  "license": "MIT"
+}
