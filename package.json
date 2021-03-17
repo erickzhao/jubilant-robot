@@ -4,7 +4,8 @@
   "description": "Beep Boop",
   "main": "lib/index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\""
   },
   "repository": "git@github.com:erickzhao/jubilant-robot.git",
   "author": "Erick Zhao <erick@hotmail.ca>",
@@ -13,7 +14,18 @@
     "webdriverio": "^7.2.0"
   },
   "devDependencies": {
+    "husky": "=4",
+    "lint-staged": ">=10",
+    "prettier": "2.2.1",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": "prettier --write \"src/**/*.ts\""
   }
 }
