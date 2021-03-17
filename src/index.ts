@@ -8,14 +8,15 @@ export class FiddleBot {
   ) {}
   /**
    * Asynchronous static constructor for FiddleBot
+   * @param binaryPath Path to the Electron Fiddle binary
    * @returns An instance of FiddleBot
    */
-  public static CreateAsync = async () => {
+  public static CreateAsync = async (binaryPath: string) => {
     const browser = await remote({
       capabilities: {
         browserName: 'chrome',
         'goog:chromeOptions': {
-          binary: `/Applications/Electron Fiddle.app/Contents/MacOS/electron-fiddle`,
+          binary: binaryPath,
         },
       },
     });
@@ -75,7 +76,9 @@ export class FiddleBot {
 
 // Remove this tester code
 (async () => {
-  const fb = await FiddleBot.CreateAsync();
+  const fb = await FiddleBot.CreateAsync(
+    `/Applications/Electron Fiddle.app/Contents/MacOS/electron-fiddle`
+  );
   await fb.loadGist(
     `https://gist.github.com/ckerr/af3e1a018f5dcce4a2ff40004ef5bab5`
   );
